@@ -1,3 +1,6 @@
 .addItem{
     margin-top: 10px;
 }
+.addItem input{
+    margin-right: 5px;
+}
