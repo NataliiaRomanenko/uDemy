@@ -2,7 +2,7 @@ import React from 'react';
 import ToDoListItem from "../todo-list-item";
 import './todo-list.css';
 
-const ToDoList = ({todos})=>{
+const ToDoList = ({todos, onDeleted,onToggleImportant, onToggleDone})=>{
     const elements = todos.map((item) => {
         const {id, ...itemProps} = item;
         return(
@@ -12,7 +12,12 @@ const ToDoList = ({todos})=>{
                 {/*<ToDoListItem {...item} />*/}
                 {/*если нужно передать все свойства обьекта внутрь компонента, а не перечислять их*/}
 
-                <ToDoListItem {...itemProps}/>
+                <ToDoListItem
+                    {...itemProps}
+                    onDeleted = {() => onDeleted(id)}
+                    onToggleImportant = {() => onToggleImportant(id)}
+                    onToggleDone = {() => onToggleDone(id)}
+                />
                 {/*передать все, кроме значания id*/}
             </li>
         )
